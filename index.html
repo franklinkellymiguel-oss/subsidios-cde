@@ -20,7 +20,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:16px}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
-img,video{max-width:100%}
+img{max-width:100%}
 .in{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 .eyebrow{font-family:var(--display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12.5px;color:var(--gold);margin:0 0 14px}
 h1,h2,h3{font-family:var(--display);color:var(--navy);margin:0;text-wrap:balance}
@@ -29,14 +29,15 @@ h1 em{font-style:normal;color:var(--gold)}
 h2{font-weight:800;font-size:clamp(26px,3.2vw,36px);line-height:1.15;letter-spacing:-.01em}
 h3{font-weight:700;font-size:19px;line-height:1.25}
 p{margin:0}
-.btn{display:inline-block;padding:13px 24px;border-radius:6px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.02em;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border-radius:6px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.02em;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,border-color .15s,transform .15s}
+.btn svg{width:20px;height:20px;fill:currentColor;flex:none}
 .btn.prim{background:var(--navy);color:#fff}.btn.prim:hover{background:var(--navy2);border-color:var(--navy2)}
-.btn.sec{color:var(--navy);background:transparent}.btn.sec:hover{background:var(--navy);color:#fff}
-.btn.ouro{background:var(--gold2);border-color:var(--gold2);color:var(--navy)}.btn.ouro:hover{background:#e6bb68;border-color:#e6bb68}
+.btn.sec{color:var(--navy);background:rgba(255,255,255,.6)}.btn.sec:hover{background:var(--navy);color:#fff}
 a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* capa */
 .hero{position:relative;background:var(--bg) url(img/hero.jpg) right center/auto 100% no-repeat;border-bottom:1px solid var(--line);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero .in{position:relative;padding-block:clamp(56px,9vw,120px)}
 .hero-txt{max-width:650px}
 .hero .lead{font-size:clamp(17px,1.6vw,19.5px);color:var(--muted);margin-top:22px;max-width:58ch}
@@ -46,30 +47,44 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:
 .pilares li{display:flex;align-items:center;gap:14px}
 .pilares li+li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold)}
 
+/* numeros */
+.numeros{background:var(--navy);color:#fff}
+.numeros ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.numeros li{padding:30px 22px;border-left:1px solid rgba(255,255,255,.14);display:grid;gap:4px;align-content:start}
+.numeros li:first-child{border-left:0;padding-left:0}
+.numeros b{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1.05;color:var(--gold2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.numeros span{color:#c4cbdb;font-size:14.5px;line-height:1.4}
+
 section{padding-block:clamp(56px,7vw,92px)}
 .cab{max-width:720px;margin-bottom:38px}
 .cab p.sub{color:var(--muted);margin-top:14px;font-size:17.5px}
 
 /* o que fazemos */
+#atuacao .eyebrow{margin-bottom:22px}
 .frentes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
-.frentes li{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:10px;padding:22px 10px 20px;display:grid;gap:12px;justify-items:center;text-align:center;font-family:var(--display);font-weight:700;font-size:15px;line-height:1.2;color:var(--navy)}
-.frentes svg{width:34px;height:34px;stroke:var(--navy);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.frentes li{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:10px;padding:22px 10px 20px;display:grid;gap:12px;justify-items:center;text-align:center;font-family:var(--display);font-weight:700;font-size:15px;line-height:1.2;color:var(--navy);transition:transform .18s,box-shadow .18s,background .18s,color .18s}
+.frentes svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.frentes li:hover{transform:translateY(-4px);background:var(--navy);color:#fff;box-shadow:0 14px 28px -16px rgba(14,27,60,.6)}
 .usinas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
-.usinas figure{margin:0;position:relative;border-radius:10px;overflow:hidden;aspect-ratio:16/10;background:var(--navy)}
-.usinas img{width:100%;height:100%;object-fit:cover;display:block}
-.usinas figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;background:linear-gradient(transparent,rgba(9,18,40,.85));color:#fff;font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.usinas figure{margin:0;border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)}
+.usinas img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.usinas figure:hover img{transform:scale(1.06)}
 
 /* estudos */
 .estudos{background:var(--soft);border-block:1px solid var(--line)}
 .grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.est{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:grid;align-content:start;transition:border-color .15s,box-shadow .15s}
-.est:hover{border-color:var(--navy);box-shadow:0 10px 30px -18px rgba(14,27,60,.45)}
-.est video{display:block;width:100%;aspect-ratio:16/9;background:var(--navy);border-bottom:1px solid var(--line)}
+.est{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:grid;align-content:start;color:var(--fg);text-decoration:none;transition:border-color .15s,box-shadow .15s,transform .15s}
+.est:hover,.est:focus-visible{border-color:var(--navy);box-shadow:0 16px 36px -20px rgba(14,27,60,.5);transform:translateY(-3px)}
+.est .previa{position:relative;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:#fff}
+.est .previa img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block;transition:transform .7s ease}
+.est:hover .previa img,.est:focus-visible .previa img{transform:scale(1.07)}
+.est .previa::after{content:"Abrir o painel interativo  →";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(14,27,60,.78);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;opacity:0;transition:opacity .2s}
+.est:hover .previa::after,.est:focus-visible .previa::after{opacity:1}
 .est .corpo{padding:22px 26px 24px;display:grid;gap:9px}
 .est .tag{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .est p{color:var(--muted);font-size:15.5px}
-.est a.ir{font-family:var(--display);font-weight:700;font-size:14px;color:var(--navy);margin-top:6px;text-decoration:none;justify-self:start;border-bottom:2px solid var(--gold);padding-bottom:2px}
-.est a.ir::after{content:" →"}
+.est .dado{display:flex;gap:10px;align-items:baseline;margin-top:6px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.est .dado b{font-family:var(--display);font-weight:800;font-size:20px;color:var(--navy);white-space:nowrap}
 .nota{color:var(--muted);font-size:14px;margin-top:22px;max-width:80ch}
 
 /* quem somos */
@@ -96,14 +111,20 @@ section{padding-block:clamp(56px,7vw,92px)}
 .contato h2{color:#fff}
 .contato .eyebrow{color:var(--gold2)}
 .contato p.sub{color:#c4cbdb;margin-top:14px;font-size:17.5px;max-width:52ch}
-.canais{display:grid;gap:12px;justify-items:start}
-.canais .btn{min-width:250px;text-align:center}
-.canais small{color:#aab3c8;font-size:13.5px}
+.canais{display:grid;gap:12px}
+.canais .btn{justify-content:flex-start;border-color:rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.05);padding:15px 20px}
+.canais .btn:hover{transform:translateX(4px);background:#fff;color:var(--navy);border-color:#fff}
+.canais .btn.zap:hover{background:#25d366;border-color:#25d366;color:#06301a}
+.canais .btn small{font-family:var(--body);font-weight:500;font-size:13.5px;opacity:.8;margin-left:auto;padding-left:12px;text-align:right;overflow-wrap:anywhere}
 
 footer{background:#091228;color:#aab3c8;font-size:13.5px;padding-block:26px}
 footer .in{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center}
 footer a{color:#dfe4ef}
 footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
+
+/* entrada suave ao rolar */
+.js .sobe{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.js .sobe.visto{opacity:1;transform:none}
 
 @media (max-width:1040px){
   .frentes{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -114,6 +135,9 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
   .hero{background-position:right -220px center}
   .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 35%,rgba(251,251,250,.78) 70%,rgba(251,251,250,.5))}
   .grade,.contato .in{grid-template-columns:1fr}
+  .numeros ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .numeros li{padding:22px 18px}.numeros li:nth-child(odd){border-left:0;padding-left:0}
+  .numeros li:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14)}
 }
 @media (max-width:640px){
   .hero{background-position:right -320px center}
@@ -122,9 +146,9 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
   .frentes{grid-template-columns:repeat(2,minmax(0,1fr))}
   .usinas{grid-template-columns:1fr}
   .quem{grid-template-columns:1fr}.quem .foto{max-width:260px}
-  .canais .btn{min-width:0;width:100%}
+  .canais .btn small{display:none}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.est{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.est,.frentes li,.usinas img,.est .previa img,.btn{transition:none}.js .sobe{opacity:1;transform:none;transition:none}}
 </style></head><body>
 <div class="abas-site" role="navigation" aria-label="Site"><div class="abas-in"><a class="abas-logo" href="index.html"><img src="img/fkm-logo.png" alt="FKM Energy Strategy" width="158" height="54"></a><a href="index.html" aria-current="page">Início</a><a href="subsidios.html">Subsídios da CDE</a><a href="concentracao.html">Concentração do varejo</a><a href="abertura.html">Abertura do Mercado</a><a href="copel.html">Copel</a></div></div>
 <style>.abas-site{background:#fff;border-bottom:1px solid #e3e6ec;font:600 14.5px/1.3 "IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
@@ -136,12 +160,13 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
 .abas-site a[aria-current="page"]{color:#0e1b3c;border-bottom-color:#b8842a}
 @media (max-width:820px){.abas-site a.abas-logo{width:100%;padding-bottom:4px}.abas-site .abas-in{gap:0 18px}.abas-site a{font-size:13.5px}}
 @media print{.abas-site{display:none}}</style>
-<header class="hero">
+<header class="hero" id="hero">
+  <canvas id="ondas" aria-hidden="true"></canvas>
   <div class="in">
     <div class="hero-txt">
       <p class="eyebrow">Estudos do Setor de Energia</p>
       <h1>Estratégia e inteligência para o <em>setor de energia</em></h1>
-      <p class="lead">A FKM Energy Strategy apoia empresas, investidores e instituições nas decisões de comercialização e de regulação de energia: estratégia e gestão de risco no mercado livre, contratos, tarifas e processos na ANEEL.</p>
+      <p class="lead">A FKM Energy Strategy apoia empresas, investidores e instituições nas decisões sobre comercialização e regulação de energia.</p>
       <p class="lead">Unimos a experiência de quem dirigiu comercializadoras e áreas de regulação a uma análise rigorosa de dados públicos.</p>
       <div class="cta"><a class="btn prim" href="#estudos">Conheça os estudos</a><a class="btn sec" href="#contato">Entre em contato</a></div>
       <ul class="pilares" aria-label="Áreas de atuação"><li>Consultoria</li><li>P&amp;D</li><li>Treinamento</li></ul>
@@ -149,42 +174,48 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
   </div>
 </header>
 
+<div class="numeros" aria-label="Números da trajetória">
+  <div class="in"><ul>
+    <li><b data-n="25" data-suf="+">25+</b><span>anos de atuação no setor elétrico brasileiro</span></li>
+    <li><b data-n="3000" data-suf=" MW">3.000 MW</b><span>médios comercializados para 2.000 clientes na Copel Mercado Livre, em 2021</span></li>
+    <li><b data-n="11233" data-suf=" MW">11.233 MW</b><span>da UHE Belo Monte, na direção de regulação e comercialização da Norte Energia</span></li>
+    <li><b data-n="4" data-suf="">4</b><span>estudos interativos publicados com dados públicos</span></li>
+  </ul></div>
+</div>
+
 <main>
-<section id="atuacao" aria-labelledby="t-atu">
+<section id="atuacao" aria-label="O que fazemos">
   <div class="in">
-    <div class="cab">
-      <p class="eyebrow">O que fazemos</p>
-      <h2 id="t-atu">Sete frentes de atuação no setor de energia</h2>
-    </div>
-    <ul class="frentes">
+    <p class="eyebrow sobe">O que fazemos</p>
+    <ul class="frentes sobe">
       <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M22 4 9 22h10l-2 14 14-19H21l1-13Z"/></svg>Mercado Livre</li>
       <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6v28M12 34h16M8 12h24M8 12l-5 10a5 5 0 0 0 10 0L8 12ZM32 12l-5 10a5 5 0 0 0 10 0l-5-10Z"/></svg>Regulação</li>
       <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M16 5h8M17 5v10L8 31a3 3 0 0 0 2.6 4.5h18.8A3 3 0 0 0 32 31l-9-16V5M12.5 25h15"/></svg>P&amp;D</li>
       <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M3 15 20 7l17 8-17 8-17-8ZM10 19v8c2.5 2.7 6 4 10 4s7.5-1.3 10-4v-8M37 15v10"/></svg>Treinamento</li>
       <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 14h12l6 6M36 26H24l-6-6M30 8l6 6-6 6M10 32l-6-6 6-6"/></svg>M&amp;A</li>
-      <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15"/><path d="m26 14-3.500 9-8.500 3 3.500-9 8.500-3Z"/></svg>Advisory</li>
+      <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15"/><path d="m26 14-3.5 9-8.5 3 3.5-9 8.5-3Z"/></svg>Advisory</li>
       <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 16 20 6l16 10M7 16v14M15 16v14M25 16v14M33 16v14M4 34h32"/></svg>Governança</li>
     </ul>
-    <div class="usinas">
-      <figure><img src="img/usina-eolica.jpg" alt="Aerogeradores de um parque eólico em Osório, no Rio Grande do Sul" loading="lazy" width="1200" height="900" style="object-position:50% 100%"><figcaption>Eólica</figcaption></figure>
-      <figure><img src="img/usina-solar.jpg" alt="Vista aérea das fileiras de painéis de uma usina solar fotovoltaica" loading="lazy" width="1200" height="900"><figcaption>Solar</figcaption></figure>
-      <figure><img src="img/usina-hidro.jpg" alt="Barragem e casa de força da usina hidrelétrica de Itaipu" loading="lazy" width="1200" height="900"><figcaption>Hídrica</figcaption></figure>
+    <div class="usinas sobe">
+      <figure><img src="img/usina-eolica.jpg" alt="Aerogeradores de um parque eólico ao pôr do sol" loading="lazy" width="1200" height="900"></figure>
+      <figure><img src="img/usina-solar.jpg" alt="Vista aérea das fileiras de painéis de uma usina solar fotovoltaica" loading="lazy" width="1200" height="900"></figure>
+      <figure><img src="img/usina-hidro.jpg" alt="Vertedouro aberto da usina hidrelétrica de Itaipu" loading="lazy" width="1200" height="900"></figure>
     </div>
   </div>
 </section>
 
 <section id="estudos" class="estudos" aria-labelledby="t-est">
   <div class="in">
-    <div class="cab">
+    <div class="cab sobe">
       <p class="eyebrow">Estudos publicados</p>
       <h2 id="t-est">Análises independentes, abertas para consulta</h2>
-      <p class="sub">Painéis interativos construídos com dados públicos da ANEEL, da CCEE e de outras fontes oficiais. Cada estudo tem um vídeo-resumo de cerca de 30 segundos.</p>
+      <p class="sub">Painéis interativos construídos com dados públicos da ANEEL, da CCEE e de outras fontes oficiais. Passe o mouse e clique para abrir cada um.</p>
     </div>
     <div class="grade">
-      <article class="est" id="video-subsidios"><video controls preload="none" playsinline poster="video/subsidios.jpg" src="video/subsidios.mp4" aria-label="Vídeo-resumo do estudo Subsídios da CDE"></video><div class="corpo"><span class="tag">Encargos setoriais</span><h3>Subsídios da CDE</h3><p>Quem paga e quem recebe os subsídios da conta de luz, por estado e por nível de tensão, nos orçamentos de 2025 e 2026.</p><a class="ir" href="subsidios.html">Abrir o estudo</a></div></article>
-      <article class="est" id="video-concentracao"><video controls preload="none" playsinline poster="video/concentracao.jpg" src="video/concentracao.mp4" aria-label="Vídeo-resumo do estudo Concentração do varejo"></video><div class="corpo"><span class="tag">Concorrência</span><h3>Concentração do varejo</h3><p>Índices de concentração do mercado varejista de energia na área de cada distribuidora.</p><a class="ir" href="concentracao.html">Abrir o estudo</a></div></article>
-      <article class="est" id="video-abertura"><video controls preload="none" playsinline poster="video/abertura.jpg" src="video/abertura.mp4" aria-label="Vídeo-resumo do estudo Abertura do Mercado"></video><div class="corpo"><span class="tag">Mercado livre</span><h3>Abertura do Mercado</h3><p>Quanto o consumidor de baixa tensão economizaria ao migrar para o mercado livre, por distribuidora, com premissas que você pode alterar.</p><a class="ir" href="abertura.html">Abrir o estudo</a></div></article>
-      <article class="est" id="video-copel"><video controls preload="none" playsinline poster="video/copel.jpg" src="video/copel.mp4" aria-label="Vídeo-resumo do Painel do CEO da Copel Distribuição"></video><div class="corpo"><span class="tag">Distribuição</span><h3>Copel</h3><p>Painel do CEO da Copel Distribuição: mercado, qualidade, perdas, receita e eficiência, comparados com as demais distribuidoras pela régua da ANEEL.</p><a class="ir" href="copel.html">Abrir o painel</a></div></article>
+      <a class="est sobe" href="subsidios.html"><div class="previa"><img src="img/previa-subsidios.jpg" alt="Diagrama do estudo: quem paga e quem recebe a CDE, por estado" loading="lazy" width="1000" height="625"></div><div class="corpo"><span class="tag">Encargos setoriais</span><h3>Subsídios da CDE</h3><p>Quem paga e quem recebe os subsídios da conta de luz, por estado e por nível de tensão, nos orçamentos de 2025 e 2026.</p><div class="dado"><b>17 de 27</b><span>estados recebem mais subsídios do que pagam de cota</span></div></div></a>
+      <a class="est sobe" href="concentracao.html"><div class="previa"><img src="img/previa-concentracao.jpg" alt="Gráficos do estudo: evolução do HHI e participação das comercializadoras dentro e fora da área do próprio grupo" loading="lazy" width="1000" height="625"></div><div class="corpo"><span class="tag">Concorrência</span><h3>Concentração do varejo</h3><p>Índices de concentração do mercado varejista de energia na área de cada distribuidora.</p><div class="dado"><b>49 de 93</b><span>áreas de concessão com concentração alta em agosto de 2026</span></div></div></a>
+      <a class="est sobe" href="abertura.html"><div class="previa"><img src="img/previa-abertura.jpg" alt="Mapa do estudo: resultado da abertura do mercado por distribuidora" loading="lazy" width="1000" height="625"></div><div class="corpo"><span class="tag">Mercado livre</span><h3>Abertura do Mercado</h3><p>Quanto o consumidor de baixa tensão economizaria ao migrar para o mercado livre, por distribuidora, com premissas que você pode alterar.</p><div class="dado"><b>10%</b><span>de economia é a premissa de partida, que você pode mudar</span></div></div></a>
+      <a class="est sobe" href="copel.html"><div class="previa"><img src="img/previa-copel.jpg" alt="Tela do painel: visão geral e scorecard da Copel Distribuição" loading="lazy" width="1000" height="625"></div><div class="corpo"><span class="tag">Distribuição</span><h3>Copel</h3><p>Painel do CEO da Copel Distribuição: mercado, qualidade, perdas, receita e eficiência, comparados com as demais distribuidoras pela régua da ANEEL.</p><div class="dado"><b>15 dimensões</b><span>comparadas entre 36 distribuidoras</span></div></div></a>
     </div>
     <p class="nota">Os estudos são elaborados a partir de dados públicos. Não são publicações oficiais da ANEEL, da CCEE nem das empresas analisadas.</p>
   </div>
@@ -192,13 +223,13 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
 
 <section id="quem-somos" aria-labelledby="t-quem">
   <div class="in">
-    <div class="cab">
+    <div class="cab sobe">
       <p class="eyebrow">Quem somos</p>
       <h2 id="t-quem">Mais de 25 anos de setor elétrico, da comercialização à regulação</h2>
     </div>
     <div class="quem">
-      <figure class="foto"><img src="img/franklin.jpg" alt="Franklin Miguel" loading="lazy" width="800" height="1200"></figure>
-      <div class="txt">
+      <figure class="foto sobe"><img src="img/franklin.jpg" alt="Franklin Miguel" loading="lazy" width="800" height="1200"></figure>
+      <div class="txt sobe">
         <p class="nome">Franklin Miguel<small>Fundador · FKM Energy Strategy</small></p>
         <p>A FKM Energy Strategy é uma empresa de consultoria, pesquisa e desenvolvimento e treinamento dedicada ao setor de energia.</p>
         <p><b>Franklin Miguel</b> é Diretor-Presidente (CEO) e conselheiro de administração certificado pelo IBGC (CCA), com mais de 25 anos no setor elétrico brasileiro em comercialização de energia, regulação, governança corporativa e gestão de riscos.</p>
@@ -206,7 +237,7 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
         <p>Participou de operações de fusões e aquisições na Electra e na Copel, com as visões regulatória, comercial e de receita, entre elas a aquisição da Enliv, em 2025. Integrou os conselhos de administração da ABIAPE, da Copel Mercado Livre e da Elejor e o Conselho Consultivo da EPE, e presidiu o Comitê Deliberativo da UEG Araucária.</p>
         <p><a class="ln" href="https://www.linkedin.com/in/franklinkellymiguel/" target="_blank" rel="author noopener">Ver o perfil completo no LinkedIn ↗</a></p>
       </div>
-      <aside class="traj" aria-label="Formação e ensino">
+      <aside class="traj sobe" aria-label="Formação e ensino">
         <h3>Formação e ensino</h3>
         <dl>
           <div><dt>Doutor em Engenharia Elétrica</dt><dd>USP · Sistemas de Potência</dd></div>
@@ -224,23 +255,86 @@ footer .cred{flex-basis:100%;font-size:12px;color:#8590a8;margin-top:6px}
 
 <section id="contato" class="contato" aria-labelledby="t-con">
   <div class="in">
-    <div>
+    <div class="sobe">
       <p class="eyebrow">Entre em contato</p>
       <h2 id="t-con">Vamos conversar sobre o seu desafio no setor de energia</h2>
       <p class="sub">Consultoria, projetos de P&amp;D, cursos e palestras. Conte o que você precisa e retornamos com uma proposta de trabalho.</p>
     </div>
-    <div class="canais">
-      <a class="btn ouro" href="https://www.linkedin.com/in/franklinkellymiguel/" target="_blank" rel="noopener">Falar pelo LinkedIn ↗</a>
-      <small>Envie uma mensagem direta pelo perfil de Franklin Miguel.</small>
+    <div class="canais sobe">
+      <a class="btn zap" id="c-zap" href="#contato" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2Zm0 1.800a8.200 8.200 0 1 1-4.200 15.250l-.300-.180-2.950.770.790-2.870-.200-.300A8.200 8.200 0 0 1 12 3.800Zm-3.500 3.900c-.200 0-.500.070-.750.350-.260.280-1 .970-1 2.370s1.020 2.750 1.160 2.940c.140.190 2 3.060 4.860 4.290 2.370.940 2.860.750 3.370.700.520-.050 1.670-.680 1.900-1.340.240-.660.240-1.220.170-1.340-.070-.120-.260-.190-.540-.330-.280-.140-1.670-.820-1.930-.920-.260-.090-.450-.140-.640.140-.190.280-.730.920-.900 1.110-.160.190-.330.210-.610.070-.280-.140-1.200-.440-2.280-1.400-.840-.750-1.410-1.680-1.580-1.960-.160-.280-.020-.440.120-.580.130-.130.280-.330.420-.500.140-.160.190-.280.280-.470.090-.190.050-.350-.020-.500-.070-.140-.640-1.530-.870-2.100-.230-.550-.460-.480-.640-.490l-.520-.010Z"/></svg>WhatsApp<small>mensagem direta</small></a>
+      <a class="btn" id="c-mail" href="#contato"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.700 2 7.300 5.600L19.300 7H4.700ZM20 8.300l-7.400 5.650a1 1 0 0 1-1.200 0L4 8.300V17h16V8.300Z"/></svg>E-mail<small id="c-mail-t"></small></a>
+      <a class="btn" href="https://www.linkedin.com/in/franklinkellymiguel/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.500 3A1.500 1.500 0 0 0 3 4.500v15A1.500 1.500 0 0 0 4.500 21h15a1.500 1.500 0 0 0 1.500-1.500v-15A1.500 1.500 0 0 0 19.500 3h-15Zm2.250 3.200a1.550 1.550 0 1 1 0 3.100 1.550 1.550 0 0 1 0-3.100ZM5.400 10.300h2.700V18H5.400v-7.700Zm4.400 0h2.600v1.050c.380-.700 1.300-1.250 2.500-1.250 2.400 0 3.100 1.500 3.100 3.700V18h-2.700v-3.800c0-1-.300-1.800-1.300-1.800-1.100 0-1.500.800-1.500 1.800V18H9.800v-7.700Z"/></svg>LinkedIn<small>perfil de Franklin Miguel</small></a>
     </div>
   </div>
 </section>
 </main>
 
-<footer><div class="in"><span>© 2026 FKM Energy Strategy · Strategy · Consulting · Advisory</span><span>Elaboração: Franklin Miguel, a partir de dados públicos.</span>
-<span class="cred">Fotos das usinas (Wikimedia Commons): parque eólico de Osório, <a href="https://commons.wikimedia.org/wiki/File:Eolic_Park_in_Osorio_2008.jpg" rel="noopener">Eduardo Fonseca</a>, CC BY 2.0 · usina solar, <a href="https://commons.wikimedia.org/wiki/File:Powering_the_Future.jpg" rel="noopener">Md Shameem Ul Islam</a>, CC BY 4.0 · Itaipu, <a href="https://commons.wikimedia.org/wiki/File:Usina_Hidroel%C3%A9trica_Itaipu_Binacional_-_Itaipu_Dam_(17153677397).jpg" rel="noopener">Deni Williams</a>, CC BY 2.0. Imagens recortadas.</span></div></footer>
+<footer><div class="in"><span>© 2026 FKM Energy Strategy · Estratégia · Consultoria · Treinamento · Advisory</span><span>Elaboração: Franklin Miguel, a partir de dados públicos.</span>
+<span class="cred">Fotos das usinas (Wikimedia Commons, recortadas): parque eólico, <a href="https://commons.wikimedia.org/wiki/File:Windpark_Krummh%C3%B6rn_Sonnenuntergang_2010.jpg" rel="noopener">kaʁstn</a>, CC BY-SA 3.0 DE · usina solar, <a href="https://commons.wikimedia.org/wiki/File:Powering_the_Future.jpg" rel="noopener">Md Shameem Ul Islam</a>, CC BY 4.0 · Itaipu, <a href="https://commons.wikimedia.org/wiki/File:Itaipu_Dam_-b.jpg" rel="noopener">Alicia Nijdam</a>, CC BY 2.0.</span></div></footer>
 <script>
-// um video por vez
-document.addEventListener("play", function (e) { document.querySelectorAll(".est video").forEach(function (v) { if (v !== e.target) v.pause(); }); }, true);
+(function () {
+  var d = document, calmo = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  d.documentElement.classList.add("js");
+
+  // contato: enderecos montados aqui para nao ficarem expostos no HTML
+  var u = ["franklinkellymiguel", "gmail.com"].join("@");
+  var m = d.getElementById("c-mail"); m.href = "mailto:" + u + "?subject=" + encodeURIComponent("Contato pelo site da FKM Energy Strategy");
+  d.getElementById("c-mail-t").textContent = u;
+  var z = d.getElementById("c-zap");
+  z.addEventListener("click", function (e) {
+    e.preventDefault();
+    var n = ["55", "41", "99836", "7310"].join("");
+    window.open("https://wa.me/" + n + "?text=" + encodeURIComponent("Olá, Franklin. Vi o site da FKM Energy Strategy e gostaria de conversar."), "_blank", "noopener");
+  });
+
+  // entrada suave das secoes
+  var itens = d.querySelectorAll(".sobe");
+  if (calmo || !("IntersectionObserver" in window)) { itens.forEach(function (x) { x.classList.add("visto"); }); }
+  else {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    itens.forEach(function (x) { io.observe(x); });
+  }
+
+  // numeros que contam
+  var fmt = new Intl.NumberFormat("pt-BR");
+  function conta(b) {
+    var fim = +b.dataset.n, suf = b.dataset.suf, t0 = null;
+    function passo(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400), v = Math.round(fim * (1 - Math.pow(1 - p, 3))); b.textContent = fmt.format(v) + suf; if (p < 1) requestAnimationFrame(passo); }
+    requestAnimationFrame(passo);
+  }
+  if (!calmo && "IntersectionObserver" in window) {
+    var ion = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { conta(e.target); ion.unobserve(e.target); } }); }, { threshold: .6 });
+    d.querySelectorAll(".numeros b").forEach(function (b) { ion.observe(b); });
+  }
+
+  // fundo da capa: linhas de fluxo que acompanham o ponteiro
+  var hero = d.getElementById("hero"), cv = d.getElementById("ondas"), cx = cv.getContext("2d"), W, H, px = -9999, py = -9999, ativo = true, t = 0;
+  function mede() { var r = hero.getBoundingClientRect(), k = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height; cv.width = W * k; cv.height = H * k; cx.setTransform(k, 0, 0, k, 0, 0); }
+  function desenha() {
+    cx.clearRect(0, 0, W, H);
+    var N = 16;
+    for (var i = 0; i < N; i++) {
+      var f = i / (N - 1), base = H * (.74 + .27 * f);
+      cx.beginPath();
+      for (var x = -20; x <= W + 20; x += 14) {
+        var y = base + Math.sin(x * .0042 + t * .6 + f * 2.2) * (26 + 22 * f) + Math.sin(x * .011 - t * .9 + i) * 7;
+        var dx = x - px, dy = y - py, q = dx * dx + dy * dy;
+        y -= 46 * Math.exp(-q / 26000) * (dy > 0 ? 1 : -1);
+        if (x === -20) cx.moveTo(x, y); else cx.lineTo(x, y);
+      }
+      cx.strokeStyle = i % 4 === 0 ? "rgba(184,132,42," + (.34 - .12 * f) + ")" : "rgba(14,27,60," + (.13 - .05 * f) + ")";
+      cx.lineWidth = i % 4 === 0 ? 1.300 : 1; cx.stroke();
+    }
+  }
+  function quadro() { if (ativo) { t += .016; desenha(); } requestAnimationFrame(quadro); }
+  mede(); desenha();
+  window.addEventListener("resize", function () { mede(); desenha(); });
+  if (!calmo) {
+    hero.addEventListener("pointermove", function (e) { var r = hero.getBoundingClientRect(); px = e.clientX - r.left; py = e.clientY - r.top; });
+    hero.addEventListener("pointerleave", function () { px = py = -9999; });
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { ativo = es[0].isIntersecting; }).observe(hero);
+    requestAnimationFrame(quadro);
+  }
+})();
 </script>
 </body></html>
