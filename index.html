@@ -1,92 +1,230 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Subsídios da CDE</title>
-<meta name="description" content="Dois infográficos com dados públicos da ANEEL: a cota da CDE paga e os subsídios recebidos por estado, e o orçamento da CDE por nível de tensão e região em 2025 e 2026.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Quem paga e quem recebe os subsídios da conta de luz">
-<meta property="og:description" content="Dois infográficos com dados públicos da ANEEL: a cota da CDE paga e os subsídios recebidos por estado, e o orçamento da CDE por nível de tensão e região em 2025 e 2026.">
+<title>FKM Energy Strategy · Estudos do Setor de Energia</title>
+<meta name="description" content="Consultoria, P&amp;D e treinamento para o setor de energia. Estudos independentes sobre tarifas, encargos, abertura do mercado e desempenho de distribuidoras, feitos com dados públicos.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FKM Energy Strategy · Estudos do Setor de Energia">
+<meta property="og:description" content="Consultoria, P&amp;D e treinamento para o setor de energia. Estudos independentes feitos com dados públicos.">
 <meta property="og:url" content="https://franklinkellymiguel-oss.github.io/subsidios-cde/">
-<meta property="og:image" content="https://franklinkellymiguel-oss.github.io/subsidios-cde/og.png">
+<meta property="og:image" content="https://franklinkellymiguel-oss.github.io/subsidios-cde/img/og-fkm.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Franklin Miguel">
+<link rel="icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#f6f7f9;--surface:#fff;--fg:#13202c;--muted:#5a6672;--line:#d8dee4;--pago:#0072B2;--rec:#E69F00;--rec-ink:#9a5b00;--pago-ink:#005a8c;
---display:"Archivo","Arial Narrow",Arial,sans-serif;--body:"IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0f161d;--surface:#16202a;--fg:#e6edf3;--muted:#9aa7b3;--line:#2b3947;--pago:#56B4E9;--rec-ink:#f2bc4d;--pago-ink:#8fd0f5;color-scheme:dark}}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
-.wrap{max-width:1040px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
-.eyebrow{font-family:var(--display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;color:var(--muted);margin:0 0 8px}
-h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,6vw,64px);line-height:1;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1 .p{color:var(--pago)} h1 .r{color:var(--rec)}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,30px);margin:0 0 12px}
-.lead{font-size:18px;color:var(--muted);max-width:62ch;margin:16px 0 0}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.cta a{display:inline-block;padding:11px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--fg)}
-.cta a.prim{background:var(--fg);color:var(--bg)} .cta a.sec{color:var(--fg)}
-.cta a:focus-visible{outline:2px solid var(--pago);outline-offset:3px}
-ul.achados{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-ul.achados li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
-ul.achados strong{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
-ul.achados li:nth-child(-n+3) strong{color:var(--pago-ink)} ul.achados li:nth-child(n+4) strong{color:var(--rec-ink)}
-ul.achados span{color:var(--muted);font-size:14.5px}
-.dois{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.dois a{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;color:var(--fg);text-decoration:none;display:grid;gap:6px}
-.dois a:hover,.dois a:focus-visible{border-color:var(--fg)} .dois b{font-family:var(--display);font-size:20px} .dois span{color:var(--muted);font-size:15px}
-.metodo a{color:var(--pago-ink)} .metodo{display:grid;gap:10px;max-width:78ch;color:var(--muted);font-size:15px} .metodo b{color:var(--fg)} .metodo p{margin:0}
-footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:16px}
-@media (max-width:760px){ul.achados{grid-template-columns:1fr} .dois{grid-template-columns:1fr}}
+:root{--navy:#0e1b3c;--navy2:#16295a;--gold:#b8842a;--gold2:#d9a94e;--bg:#fbfbfa;--surface:#fff;--fg:#0e1b3c;--muted:#566074;--line:#e3e6ec;--soft:#f3f4f7;
+--display:"Montserrat","Segoe UI",Arial,sans-serif;--body:"IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.in{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--display);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12.5px;color:var(--gold);margin:0 0 14px}
+h1,h2,h3{font-family:var(--display);color:var(--navy);margin:0;text-wrap:balance}
+h1{font-weight:800;font-size:clamp(34px,5.2vw,60px);line-height:1.06;letter-spacing:-.015em}
+h1 em{font-style:normal;color:var(--gold)}
+h2{font-weight:800;font-size:clamp(26px,3.2vw,36px);line-height:1.15;letter-spacing:-.01em}
+h3{font-weight:700;font-size:19px;line-height:1.25}
+p{margin:0}
+.btn{display:inline-block;padding:13px 24px;border-radius:6px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.02em;text-decoration:none;border:1.5px solid var(--navy);transition:background .15s,color .15s,border-color .15s}
+.btn.prim{background:var(--navy);color:#fff}.btn.prim:hover{background:var(--navy2);border-color:var(--navy2)}
+.btn.sec{color:var(--navy);background:transparent}.btn.sec:hover{background:var(--navy);color:#fff}
+.btn.ouro{background:var(--gold2);border-color:var(--gold2);color:var(--navy)}.btn.ouro:hover{background:#e6bb68;border-color:#e6bb68}
+.btn.claro{border-color:rgba(255,255,255,.55);color:#fff}.btn.claro:hover{background:#fff;color:var(--navy);border-color:#fff}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* capa */
+.hero{position:relative;background:var(--bg) url(img/hero.jpg) right center/auto 100% no-repeat;border-bottom:1px solid var(--line);overflow:hidden}
+.hero .in{position:relative;padding-block:clamp(56px,9vw,120px)}
+.hero-txt{max-width:640px}
+.hero .lead{font-size:clamp(17px,1.6vw,19.5px);color:var(--muted);margin-top:22px;max-width:56ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.pilares{display:flex;flex-wrap:wrap;gap:8px 14px;margin:40px 0 0;padding:0;list-style:none;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.pilares li{display:flex;align-items:center;gap:14px}
+.pilares li+li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+section{padding-block:clamp(56px,7vw,92px)}
+.cab{max-width:720px;margin-bottom:38px}
+.cab p.sub{color:var(--muted);margin-top:14px;font-size:17.5px}
+
+/* o que fazemos */
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cartao{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:30px 26px;display:grid;gap:12px;align-content:start;border-top:3px solid var(--gold)}
+.cartao svg{width:38px;height:38px;stroke:var(--navy);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cartao p{color:var(--muted);font-size:15.5px}
+.cartao ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:14.5px;color:var(--fg)}
+.cartao li{padding-left:18px;position:relative}
+.cartao li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1.5px;background:var(--gold)}
+
+/* estudos */
+.estudos{background:var(--soft);border-block:1px solid var(--line)}
+.grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.est{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px 26px 24px;text-decoration:none;color:var(--fg);display:grid;gap:10px;align-content:start;transition:border-color .15s,box-shadow .15s,transform .15s}
+.est:hover,.est:focus-visible{border-color:var(--navy);box-shadow:0 10px 30px -18px rgba(14,27,60,.45);transform:translateY(-2px)}
+.est .tag{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.est p{color:var(--muted);font-size:15.5px}
+.est .ir{font-family:var(--display);font-weight:700;font-size:14px;color:var(--navy);margin-top:6px}
+.est .ir::after{content:" →"}
+.nota{color:var(--muted);font-size:14px;margin-top:22px;max-width:80ch}
+
+/* quem somos */
+.quem{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.quem .txt{display:grid;gap:16px}
+.quem .txt p{color:var(--muted)}
+.quem .txt p b{color:var(--fg);font-weight:600}
+.quem .nome{font-family:var(--display);font-weight:700;font-size:20px;color:var(--navy)}
+.quem .nome small{display:block;font-family:var(--body);font-weight:500;font-size:14.5px;color:var(--gold);letter-spacing:.02em;margin-top:2px}
+.traj{background:var(--navy);color:#fff;border-radius:10px;padding:30px 28px;display:grid;gap:0}
+.traj h3{color:#fff;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:8px}
+.traj dl{margin:0;display:grid}
+.traj div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.traj div:last-child{border-bottom:0;padding-bottom:0}
+.traj dt{font-family:var(--display);font-weight:700;font-size:15.5px}
+.traj dd{margin:2px 0 0;color:#c4cbdb;font-size:14.5px}
+.ln{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+
+/* contato */
+.contato{background:var(--navy);color:#fff;background-image:radial-gradient(1200px 500px at 110% 120%,rgba(217,169,78,.22),transparent 60%),radial-gradient(900px 400px at -10% -40%,rgba(60,98,190,.35),transparent 60%)}
+.contato .in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.contato h2{color:#fff}
+.contato .eyebrow{color:var(--gold2)}
+.contato p.sub{color:#c4cbdb;margin-top:14px;font-size:17.5px;max-width:52ch}
+.canais{display:grid;gap:12px;justify-items:start}
+.canais .btn{min-width:250px;text-align:center}
+.canais small{color:#aab3c8;font-size:13.5px}
+
+footer{background:#091228;color:#aab3c8;font-size:13.5px;padding-block:26px}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center}
+footer a{color:#dfe4ef}
+
+@media (max-width:900px){
+  .hero{background-position:right -220px center}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 35%,rgba(251,251,250,.78) 70%,rgba(251,251,250,.5))}
+  .tres,.grade,.quem,.contato .in{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .hero{background-position:right -320px center}
+  .hero::before{background:rgba(251,251,250,.86)}
+  .pilares{gap:6px 0;flex-direction:column}.pilares li+li::before{display:none}
+  .canais .btn{min-width:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.est{transition:none}}
 </style></head><body>
-<nav class="abas-site" aria-label="Estudos"><div class="abas-in"><span class="abas-marca">Estudos do setor elétrico</span><a href="index.html" aria-current="page">Subsídios da CDE</a><a href="concentracao.html">Concentração do varejo</a><a href="abertura.html">Abertura do Mercado</a></div></nav>
-<style>.abas-site{--ab-fg:#13202c;--ab-mu:#5a6672;--ab-li:#d8dee4;--ab-ac:#0072B2;--ab-bg:#ffffff;background:var(--ab-bg);border-bottom:1px solid var(--ab-li);font:600 14.5px/1.3 "IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif}
-@media (prefers-color-scheme:dark){.abas-site{--ab-fg:#e6edf3;--ab-mu:#9aa7b3;--ab-li:#2b3947;--ab-ac:#56B4E9;--ab-bg:#16202a}}
-.abas-in{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:0 22px;padding:10px max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
-.abas-marca{color:var(--ab-mu);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-right:auto;padding-bottom:11px}
-.abas-site a{color:var(--ab-mu);text-decoration:none;padding:6px 2px 9px;border-bottom:3px solid transparent}
-.abas-site a:hover,.abas-site a:focus-visible{color:var(--ab-fg)} .abas-site a[aria-current="page"]{color:var(--ab-fg);border-bottom-color:var(--ab-ac)}
-@media (max-width:560px){.abas-marca{width:100%;padding-bottom:2px}}</style>
-<main class="wrap">
-  <header>
-    <p class="eyebrow">Conta de Desenvolvimento Energético · análise independente com dados públicos da ANEEL</p>
-    <h1>Quem <span class="p">paga</span> e quem <span class="r">recebe</span> os subsídios da conta de luz</h1>
-    <p class="lead">A CDE banca descontos tarifários, a Tarifa Social, os sistemas isolados, a geração distribuída e outras políticas. O dinheiro vem principalmente de uma quota cobrada na tarifa de todos os consumidores. Este estudo mostra de onde ele sai e para onde vai, por estado e por nível de tensão.</p>
-    <div class="cta"><a class="prim" href="estudo.html">Ver o estudo completo</a><a class="sec" href="#metodo">Método e fontes</a></div>
-  </header>
-
-  <section aria-labelledby="t-ach">
-    <h2 id="t-ach">Principais números</h2>
-    <ul class="achados">
-<li><strong>17 de 27</strong><span>estados recebem mais subsídios da CDE do que pagam de cota (2025)</span></li>
-<li><strong>R$ 12,20 bi</strong><span>pagos pelas distribuidoras de São Paulo em 2025, que receberam R$ 4,72 bi</span></li>
-<li><strong>R$ 7,70 bi</strong><span>recebidos no Amazonas em 2025, para R$ 0,38 bi pagos de cota</span></li>
-<li><strong>82,9%</strong><span>das quotas CDE-Uso de 2026 saem de S/SE/CO; a baixa tensão paga 57,0%</span></li>
-<li><strong>R$ 136,45/MWh</strong><span>de CDE na baixa tensão do S/SE/CO, contra R$ 44,30/MWh na alta tensão do N/NE (2026)</span></li>
-<li><strong>R$ 52,66 bi</strong><span>é o orçamento proposto da CDE para 2026</span></li>
-    </ul>
-  </section>
-
-  <section aria-labelledby="t-inf">
-    <h2 id="t-inf">Os dois infográficos</h2>
-    <div class="dois">
-      <a href="estudo.html#infografico-1"><b>1 · Por estado</b><span>Cota da CDE paga pelas distribuidoras de cada estado × subsídios concedidos na área delas, em 2025 e 2026, com filtro por tipo de subsídio.</span></a>
-      <a href="estudo.html#infografico-2"><b>2 · Orçamento por tensão e região</b><span>Quem paga a CDE em alta, média e baixa tensão, no N/NE e no S/SE/CO, e para onde vão as despesas, abertas por estado, nos orçamentos de 2025 e 2026.</span></a>
+<div class="abas-site" role="navigation" aria-label="Site"><div class="abas-in"><a class="abas-logo" href="index.html"><img src="img/fkm-logo.png" alt="FKM Energy Strategy" width="158" height="54"></a><a href="index.html" aria-current="page">Início</a><a href="subsidios.html">Subsídios da CDE</a><a href="concentracao.html">Concentração do varejo</a><a href="abertura.html">Abertura do Mercado</a><a href="copel.html">Copel</a></div></div>
+<style>.abas-site{background:#fff;border-bottom:1px solid #e3e6ec;font:600 14.5px/1.3 "IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;color-scheme:light}
+.abas-site .abas-in{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:0 24px;padding:10px max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+.abas-site a.abas-logo{margin-right:auto;padding:0 0 9px;border:0;display:block;line-height:0}
+.abas-site a.abas-logo img{display:block;width:158px;height:54px;max-width:none}
+.abas-site a{color:#566074;text-decoration:none;padding:6px 2px 11px;border-bottom:3px solid transparent;background:none;white-space:nowrap}
+.abas-site a:hover,.abas-site a:focus-visible{color:#0e1b3c}
+.abas-site a[aria-current="page"]{color:#0e1b3c;border-bottom-color:#b8842a}
+@media (max-width:820px){.abas-site a.abas-logo{width:100%;padding-bottom:4px}.abas-site .abas-in{gap:0 18px}.abas-site a{font-size:13.5px}}
+@media print{.abas-site{display:none}}</style>
+<header class="hero">
+  <div class="in">
+    <div class="hero-txt">
+      <p class="eyebrow">Estudos do Setor de Energia</p>
+      <h1>Estratégia e inteligência para o <em>setor de energia</em></h1>
+      <p class="lead">A FKM Energy Strategy apoia empresas, investidores e instituições em decisões sobre regulação, tarifas, comercialização e governança. Combinamos experiência executiva no setor elétrico brasileiro com análise rigorosa de dados públicos.</p>
+      <div class="cta"><a class="btn prim" href="#estudos">Conheça os estudos</a><a class="btn sec" href="#contato">Entre em contato</a></div>
+      <ul class="pilares" aria-label="Áreas de atuação"><li>Consultoria</li><li>P&amp;D</li><li>Treinamento</li></ul>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section id="metodo" aria-labelledby="t-met">
-    <h2 id="t-met">Método e fontes</h2>
-    <div class="metodo">
-      <p><b>Infográfico 1.</b> ANEEL, Subsidiômetro, aba "Comparativo Cota CDE × Subsídios": cota CDE (parcela atribuída a subsídios) e subsídios concedidos por distribuidora, agregados no estado que o próprio painel atribui a cada uma. Dados exportados do painel em 25 e 26/10/2026; 2026 cobre as competências de janeiro a outubro.</p>
-      <p><b>Infográfico 2.</b> Orçamento e rateio das quotas da CDE nas notas técnicas da ANEEL: NT Conjunta nº 2/2025-STR-SGM-SFF (mercado de rateio de 2025) e NT nº 237/2025-STR (orçamento de 2025 e proposta de 2026). Beneficiários por distribuidora: dados abertos ANEEL "Subsídios Tarifários".</p>
-      <p><b>Estimativas.</b> Os poucos valores estimados (marcados com "≈" no estudo) são divisões proporcionais explicadas nas notas da página. Todos os demais números vêm direto das fontes, e as somas foram conferidas em código.</p>
-      <p><b>Autor.</b> Franklin Miguel — Doutor em Engenharia Elétrica (USP), advogado e conselheiro de administração certificado pelo IBGC (CCA), com mais de 25 anos no setor elétrico brasileiro em comercialização de energia, regulação, tarifas e governança. Foi Diretor-Presidente da Electra Energia e da Copel Mercado Livre e Diretor de Regulação e Comercialização da Norte Energia; professor de MBA e pós-graduação desde 2012. <a href="https://www.linkedin.com/in/franklinkellymiguel/" rel="author noopener" target="_blank">Perfil no LinkedIn ↗</a></p>
-      <p><b>Sobre.</b> Elaboração: Franklin Miguel, a partir de dados públicos. Não é publicação oficial da ANEEL nem da CCEE.</p>
+<main>
+<section id="atuacao" aria-labelledby="t-atu">
+  <div class="in">
+    <div class="cab">
+      <p class="eyebrow">O que fazemos</p>
+      <h2 id="t-atu">Três frentes, um mesmo método: decisão apoiada em evidência</h2>
     </div>
-  </section>
+    <div class="tres">
+      <article class="cartao">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 33h28M10 33V19M18 33V9M26 33V15M34 33V23"/></svg>
+        <h3>Consultoria</h3>
+        <p>Diagnóstico e estratégia para quem atua ou investe no setor de energia.</p>
+        <ul><li>Regulação e processos tarifários</li><li>Comercialização e mercado livre</li><li>Desempenho de distribuidoras</li><li>Governança corporativa</li></ul>
+      </article>
+      <article class="cartao">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M16 5h8M17 5v10L8 31a3 3 0 0 0 2.6 4.5h18.8A3 3 0 0 0 32 31l-9-16V5M12.5 25h15"/></svg>
+        <h3>Pesquisa e Desenvolvimento</h3>
+        <p>Estudos aplicados e ferramentas analíticas que transformam bases públicas em informação útil.</p>
+        <ul><li>Projetos de P&amp;D regulado</li><li>Painéis e modelos de simulação</li><li>Estudos de abertura do mercado</li><li>Análise de encargos e subsídios</li></ul>
+      </article>
+      <article class="cartao">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M3 15 20 7l17 8-17 8-17-8ZM10 19v8c2.5 2.7 6 4 10 4s7.5-1.3 10-4v-8M37 15v10"/></svg>
+        <h3>Treinamento</h3>
+        <p>Formação de equipes e executivos, com conteúdo sob medida e linguagem direta.</p>
+        <ul><li>Regulação e tarifas de energia</li><li>Comercialização e gestão de risco</li><li>Abertura do mercado para a baixa tensão</li><li>Cursos in company e palestras</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
 
-  <footer>Atualizado em 27/10/2026 · Elaboração: Franklin Miguel, a partir de dados públicos.</footer>
+<section id="estudos" class="estudos" aria-labelledby="t-est">
+  <div class="in">
+    <div class="cab">
+      <p class="eyebrow">Estudos publicados</p>
+      <h2 id="t-est">Análises independentes, abertas para consulta</h2>
+      <p class="sub">Painéis interativos construídos com dados públicos da ANEEL, da CCEE e de outras fontes oficiais. Cada estudo traz o método e as fontes usadas.</p>
+    </div>
+    <div class="grade">
+      <a class="est" href="subsidios.html"><span class="tag">Encargos setoriais</span><h3>Subsídios da CDE</h3><p>Quem paga e quem recebe os subsídios da conta de luz, por estado e por nível de tensão, nos orçamentos de 2025 e 2026.</p><span class="ir">Abrir o estudo</span></a>
+      <a class="est" href="concentracao.html"><span class="tag">Concorrência</span><h3>Concentração do varejo</h3><p>Índices de concentração do mercado varejista de energia na área de cada distribuidora.</p><span class="ir">Abrir o estudo</span></a>
+      <a class="est" href="abertura.html"><span class="tag">Mercado livre</span><h3>Abertura do Mercado</h3><p>Quanto o consumidor de baixa tensão economizaria ao migrar para o mercado livre, por distribuidora, com premissas que você pode alterar.</p><span class="ir">Abrir o estudo</span></a>
+      <a class="est" href="copel.html"><span class="tag">Distribuição</span><h3>Copel</h3><p>Painel do CEO da Copel Distribuição: mercado, qualidade, perdas, receita e eficiência, comparados com as demais distribuidoras pela régua da ANEEL.</p><span class="ir">Abrir o painel</span></a>
+    </div>
+    <p class="nota">Os estudos são elaborados a partir de dados públicos. Não são publicações oficiais da ANEEL, da CCEE nem das empresas analisadas.</p>
+  </div>
+</section>
+
+<section id="quem-somos" aria-labelledby="t-quem">
+  <div class="in">
+    <div class="cab">
+      <p class="eyebrow">Quem somos</p>
+      <h2 id="t-quem">Mais de 25 anos de setor elétrico, da operação à regulação</h2>
+    </div>
+    <div class="quem">
+      <div class="txt">
+        <p class="nome">Franklin Miguel<small>Fundador · FKM Energy Strategy</small></p>
+        <p>A FKM Energy Strategy é uma empresa de consultoria, pesquisa e desenvolvimento e treinamento dedicada ao setor de energia. Foi criada para levar a empresas e instituições a visão de quem já esteve nos dois lados da mesa: na direção de companhias do setor e no estudo técnico das regras que o organizam.</p>
+        <p><b>Franklin Miguel</b> é Doutor em Engenharia Elétrica pela USP, advogado e conselheiro de administração certificado pelo IBGC (CCA). Tem mais de 25 anos de atuação no setor elétrico brasileiro, em comercialização de energia, regulação, tarifas e governança.</p>
+        <p>Foi Diretor-Presidente da Electra Energia e da Copel Mercado Livre e Diretor de Regulação e Comercialização da Norte Energia. É professor de MBA e de pós-graduação desde 2012.</p>
+        <p><a class="ln" href="https://www.linkedin.com/in/franklinkellymiguel/" target="_blank" rel="author noopener">Ver o perfil completo no LinkedIn ↗</a></p>
+      </div>
+      <aside class="traj" aria-label="Formação e trajetória">
+        <h3>Formação e trajetória</h3>
+        <dl>
+          <div><dt>Doutor em Engenharia Elétrica</dt><dd>Universidade de São Paulo (USP)</dd></div>
+          <div><dt>Advogado</dt><dd>Formação jurídica aliada à engenharia</dd></div>
+          <div><dt>Conselheiro de administração</dt><dd>Certificado pelo IBGC (CCA)</dd></div>
+          <div><dt>Diretor-Presidente</dt><dd>Electra Energia · Copel Mercado Livre</dd></div>
+          <div><dt>Diretor de Regulação e Comercialização</dt><dd>Norte Energia</dd></div>
+          <div><dt>Professor</dt><dd>MBA e pós-graduação, desde 2012</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="contato" aria-labelledby="t-con">
+  <div class="in">
+    <div>
+      <p class="eyebrow">Entre em contato</p>
+      <h2 id="t-con">Vamos conversar sobre o seu desafio no setor de energia</h2>
+      <p class="sub">Consultoria, projetos de P&amp;D, cursos e palestras. Conte o que você precisa e retornamos com uma proposta de trabalho.</p>
+    </div>
+    <div class="canais">
+      <a class="btn ouro" href="https://www.linkedin.com/in/franklinkellymiguel/" target="_blank" rel="noopener">Falar pelo LinkedIn ↗</a>
+      <small>Envie uma mensagem direta pelo perfil de Franklin Miguel.</small>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer><div class="in"><span>© 2026 FKM Energy Strategy · Strategy · Consulting · Advisory</span><span>Elaboração: Franklin Miguel, a partir de dados públicos.</span></div></footer>
 </body></html>
