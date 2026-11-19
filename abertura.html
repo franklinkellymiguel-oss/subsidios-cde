@@ -466,7 +466,7 @@
 <div class="wrap">
   <div class="masthead">
     <div class="eyebrow">ANEEL &middot; CCEE</div>
-    <h1>Abertura do Mercado Livre</h1><p class="site-lead">Quanto o consumidor economizaria e quanto a comercializadora ganharia se os consumidores de baixa tensão migrassem para o mercado livre, distribuidora a distribuidora. Escolha a classe de consumo e, se quiser, altere as premissas de preço: os mapas, os rankings e os destaques se recalculam.</p>
+    <h1>Abertura do Mercado Livre</h1><p class="site-lead">Quanto o consumidor economizaria e quanto a comercializadora ganharia se os consumidores de baixa tensão migrassem para o mercado livre, distribuidora a distribuidora. Escolha a classe de consumo: os mapas, os rankings e os destaques se recalculam com as premissas padrão do estudo.</p>
   </div>
 
   <div class="pagenav" id="pageNav">
@@ -926,7 +926,7 @@
           <li><strong>Preço de compra</strong> de cada ano = preço do submercado da distribuidora naquele ano. <strong>Preço ACL (venda)</strong> = média do preço do submercado nos anos válidos &times; (1 + Margem sobre a venda), fixo nesses anos.</li>
           <li><strong>Anos válidos:</strong> B3 de 2028 a 2030; B1 Residencial e Demais Classes de 2029 a 2030 (margem de 2028 igual a zero para essas classes).</li>
           <li><strong>Mercado</strong> (consumo e UCs) do último ano disponível (EPE; em SP, RJ e RS dividido entre as distribuidoras pelo SAMP da ANEEL) e <strong>última tarifa</strong> homologada de cada distribuidora (ANEEL).</li>
-          <li>A página abre sempre com as <strong>premissas padrão</strong>; o botão &ldquo;Restaurar premissas padrão&rdquo; volta a elas.</li>
+          <li>A página usa sempre as <strong>premissas padrão</strong> do estudo; a simulação com outras premissas é restrita (botão &ldquo;Alterar premissas&rdquo;).</li>
         </ul>
       </div>
     </div>
@@ -1075,7 +1075,7 @@
   </section>
 </div>
 
-<script src="abertura-dados.js?v=202611101518" charset="utf-8"></script>
+<script src="abertura-dados.js?v=202611191657" charset="utf-8"></script>
 <script>
 (function(){
   "use strict";
@@ -5065,29 +5065,63 @@
 })();
 </script>
 
+<!-- Janela "Informações Restritas" com os contatos (comum às páginas do site que não são painéis; fonte: OneDrive/Site/comum/restrito_modal.html).
+     Uso: fkmRestrito("Título da função") abre a janela. Mesmo visual da tela restrita dos painéis (Site/comum/painel_menu.*). -->
+<style>
+.fkm-rst{display:none;position:fixed;inset:0;z-index:100000;background:rgba(9,18,40,.72);align-items:center;justify-content:center;padding:16px}
+.fkm-rst.on{display:flex}
+.fkm-rst .cx{width:min(560px,100%);background:#fff;color:#0e1b3c;border-radius:12px;padding:22px 22px 18px;box-shadow:0 18px 50px rgba(0,0,0,.35);font:15px/1.5 "IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif}
+.fkm-rst .tp{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.fkm-rst h2{margin:0;font-size:21px}
+.fkm-rst .sub{margin:2px 0 0;font-size:13px;color:#566074}
+.fkm-rst .x{border:0;background:none;font-size:22px;line-height:1;cursor:pointer;color:#566074;padding:2px 6px}
+.fkm-rst p.t{margin:14px 0 0}
+.fkm-rst .canais{display:grid;gap:10px;margin-top:16px}
+.fkm-rst .canais a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-radius:10px;background:#1d2a4a;border:1px solid #33416a;color:#fff;text-decoration:none}
+.fkm-rst .canais a:hover,.fkm-rst .canais a:focus-visible{border-color:#d9a94e}
+.fkm-rst .canais b{display:flex;align-items:center;gap:10px;font-size:15px}
+.fkm-rst .canais svg{width:18px;height:18px;fill:currentColor}
+.fkm-rst .canais span{font-size:13px;color:#c4cbdb;font-weight:600;text-align:right;overflow-wrap:anywhere}
+@media (max-width:520px){.fkm-rst .canais a{flex-direction:column;align-items:flex-start}.fkm-rst .canais span{text-align:left}}
+</style>
+<div class="fkm-rst" id="fkmRst" role="dialog" aria-modal="true" aria-labelledby="fkmRstT"><div class="cx">
+ <div class="tp"><div><h2 id="fkmRstT">Informações Restritas</h2><p class="sub" id="fkmRstS"></p></div><button class="x" type="button" aria-label="Fechar">&#10005;</button></div>
+ <p class="t">Este recurso não está disponível na versão pública. Para conhecer a análise completa, entre em contato:</p>
+ <div class="canais">
+  <a href="#" data-c="zap"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.25l-.3-.18-2.95.77.79-2.87-.2-.3A8.2 8.2 0 0 1 12 3.8Z"/></svg>WhatsApp</b><span>mensagem direta</span></a>
+  <a href="#" data-c="mail"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.7 2 7.3 5.6L19.3 7H4.7ZM20 8.3l-7.4 5.65a1 1 0 0 1-1.2 0L4 8.3V17h16V8.3Z"/></svg>E-mail</b><span data-c="mailt"></span></a>
+  <a href="https://www.linkedin.com/in/franklinkellymiguel/" target="_blank" rel="noopener"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 3A1.5 1.5 0 0 0 3 4.5v15A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 19.5 3h-15Zm2.25 3.2a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1ZM5.4 10.3h2.7V18H5.4v-7.7Zm4.4 0h2.6v1.05c.38-.7 1.3-1.25 2.5-1.25 2.4 0 3.1 1.5 3.1 3.7V18h-2.7v-3.8c0-1-.3-1.8-1.3-1.8-1.1 0-1.5.8-1.5 1.8V18H9.8v-7.7Z"/></svg>LinkedIn</b><span>perfil de Franklin Miguel</span></a>
+ </div></div></div>
+<script>
+(function () {
+  var o = document.getElementById("fkmRst"), u = ["franklinkellymiguel", "gmail.com"].join("@"), assunto = "";
+  o.querySelector('[data-c="mailt"]').textContent = u;
+  function fecha() { o.classList.remove("on"); }
+  o.querySelector(".x").addEventListener("click", fecha);
+  o.addEventListener("click", function (e) { if (e.target === o) fecha(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") fecha(); });
+  o.querySelector('[data-c="mail"]').addEventListener("click", function (e) { e.preventDefault(); location.href = "mailto:" + u + "?subject=" + encodeURIComponent(assunto); });
+  o.querySelector('[data-c="zap"]').addEventListener("click", function (e) {
+    e.preventDefault();
+    window.open("https://wa.me/" + ["55", "41", "99836", "7310"].join("") + "?text=" + encodeURIComponent("Olá, Franklin. Vi " + assunto + " no site da FKM Energy Strategy e gostaria de conversar."), "_blank", "noopener");
+  });
+  window.fkmRestrito = function (titulo) {
+    assunto = (titulo || "o site") + " (" + document.title + ")";
+    document.getElementById("fkmRstS").textContent = titulo || "";
+    o.classList.add("on"); o.querySelector(".x").focus();
+  };
+})();
+</script>
 <script>
 (function(){
   document.querySelector(".page-btn[data-page='mapas']").click();
-  var mp = document.getElementById("pageMapas"), sm = document.getElementById("pageSimulacaoSubmercado");
-  var det = document.createElement("details");
-  det.className = "card site-prem"; det.id = "sitePrem";
-  det.innerHTML = "<summary>Premissas de preço, spread, modulação e margem <span class='d'>clique para abrir e alterar · os mapas recalculam na hora</span></summary><div class='site-prem-in'></div>";
-  var dentro = det.querySelector(".site-prem-in");
-  var reset = document.getElementById("smPremResetBtn");
-  var barra = document.createElement("div"); barra.className = "filterbar"; barra.appendChild(reset);
-  dentro.appendChild(barra);
-  // cards da aba Submercado: texto das premissas, preco SE/CO e modulacao, spreads, margem (o 5o e' o ranking, fica de fora)
-  Array.prototype.slice.call(sm.children).filter(function(el){ return el.classList.contains("card"); }).slice(0, 4)
-    .forEach(function(c){ dentro.appendChild(c); });
-  var faixa = mp.querySelector(".mp-premissas");
-  faixa.parentNode.insertBefore(det, faixa.nextSibling);
   var b = document.getElementById("mpIrPremissas"), nb = b.cloneNode(true);
-  nb.title = "Abre o painel de premissas logo abaixo";
+  nb.title = "Simulação com outras premissas: informações restritas";
   b.parentNode.replaceChild(nb, b);
-  nb.addEventListener("click", function(){ det.open = true; det.scrollIntoView({ behavior:"smooth", block:"start" }); });
+  nb.addEventListener("click", function(){ fkmRestrito("Abertura do Mercado: alterar premissas"); });
   var assin = document.createElement("div");
   assin.className = "site-assin";
-  assin.innerHTML = "Atualizado em 10/11/2026 · Elaboração: Franklin Miguel, a partir de dados públicos (ANEEL, EPE e CCEE). Não é publicação oficial da ANEEL, da EPE nem da CCEE.";
+  assin.innerHTML = "Atualizado em 19/11/2026 · Elaboração: Franklin Miguel, a partir de dados públicos (ANEEL, EPE e CCEE). Não é publicação oficial da ANEEL, da EPE nem da CCEE.";
   document.querySelector(".wrap").appendChild(assin);
 })();
 </script>
